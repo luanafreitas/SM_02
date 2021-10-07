@@ -4,97 +4,92 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomTabBarHeightContext } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { BlurView } from 'expo-blur' ;
 
-import AppList from './AppList';
+import { Entypo } from '@expo/vector-icons'; 
+
+import AppHome from './AppHome';
+import AppCalendar from './AppCalendar'
 import AppForm from './AppForm';
+import AppNotification from './AppNotification';
+import AppProfile from './AppProfile';
 
 const Tab = createBottomTabNavigator();
-const theme = { //like this
-    colors: {
-      background: "transparent",
-    },
-  };
-
-function MyTabBar({ state, descriptors, navigation }) {
-  return (
-    <View
-      style={{
-        position: 'absolute',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 25,
-        left: 20,
-        right: 20,
-        elevation: 0,
-        backgroundColor: '#fff',
-        borderRadius: 15,
-        height: 40,
-        ...style.shadow,
-      }}>
-      {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
-        const label =
-          options.tabBarLabel !== undefined
-            ? options.tabBarLabel
-            : options.title !== undefined
-            ? options.title
-            : route.name;
-
-        const isFocused = state.index === index;
-
-        const onPress = () => {
-          const event = navigation.emit({
-            type: 'tabPress',
-            target: route.key,
-          });
-
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
-          }
-        };
-
-        const onLongPress = () => {
-          navigation.emit({
-            type: 'tabLongPress',
-            target: route.key,
-          });
-        };
-
-        return (
-          <TouchableOpacity
-            accessibilityRole="button"
-            accessibilityStates={isFocused ? ['selected'] : []}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={{ flex: 1, alignItems: 'center' }}>
-            <Text style={{ color: isFocused ? '#0077FF' : '#0077FF' }}>
-              {label}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
-}
+const theme = {
+  //like this
+  colors: {
+    background: 'transparent',
+  },
+};
 
 function AppTab() {
   return (
     <NavigationContainer theme={theme}>
       <Tab.Navigator
-        tabBar={(props) => <MyTabBar {...props} />}
         screenOptions={{
           headerShown: false,
+          tabBarStyle: {
+            backgroundColor: 'white',
+            position: 'absolute',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            bottom: 25,
+            left: 20,
+            right: 20,
+            elevation: 0,
+            borderRadius: 5,
+            height: 50,
+          },
         }}
         tabBarOptions={{
           showLabel: false,
-        }}
-        >
-        <Tab.Screen name="Home" component={AppForm} />
-        <Tab.Screen name="List" component={AppList} />
+          showIcon: true,
+          style: {},
+        }}>
+        <Tab.Screen
+          name="Home"
+          component={AppHome}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <Entypo name="home" size={24} color="black" />
+            ),
+          }}
+        />
+        <Tab.Screen name="Calendar" component={AppCalendar} 
+        options={{
+            tabBarLabel: 'Calendar',
+            tabBarIcon: ({ color, size }) => (
+              <Entypo name="home" size={24} color="black" />
+            ),
+            }}
+        />
+        <Tab.Screen name="Cadastrar" component={AppForm} 
+        options={{
+            tabBarLabel: 'Cadastrar',
+            tabBarIcon: ({ color, size }) => (
+              <Entypo name="home" size={24} color="black" />
+            ),
+            }}
+        />
+        <Tab.Screen name="Notification" component={AppNotification} 
+        options={{
+            tabBarLabel: 'Notification',
+            tabBarIcon: ({ color, size }) => (
+              <Entypo name="home" size={24} color="black" />
+            ),
+            }}
+        />
+        <Tab.Screen name="Profile" component={AppProfile} 
+        options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color, size }) => (
+              <Entypo name="home" size={24} color="black" />
+            ),
+            }}
+        />
+         
+        
       </Tab.Navigator>
     </NavigationContainer>
   );

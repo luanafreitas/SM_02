@@ -8,6 +8,6 @@ export default function AppForm() {
   
     return (
       
-          <Text>List</Text>
+          <Text>Home</Text>
     );
 }

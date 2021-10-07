@@ -8,6 +8,6 @@ export default function AppForm() {
   
     return (
       
-          <Text>Cadastrar</Text>
+          <Text>Notificações</Text>
     );
 }
