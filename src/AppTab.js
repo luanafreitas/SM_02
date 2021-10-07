@@ -1,65 +1,62 @@
 import React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
+
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import AppList from './AppList';
 import AppForm from './AppForm';
 
-const { Navigator, Screen } = createBottomTabNavigator();
-
+const Tab = createBottomTabNavigator();
 
 function AppTab() {
-    return (
-        <NavigationContainer>
-            <Navigator
-                initialRouteName={AppForm}
-                screenOptions={{
-                    style: {
-                        elevation: 0,
-                        shadowOpacity: 0,
-                        height: 64,
-                    },
-                    tabStyle: {
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    },
-                    labelStyle: {
-                        fontSize: 20,
-                        marginLeft: 16,
-                        marginTop: 20,
-                    },
-                    tabBarInactiveBackgroundColor: 'black',
-                    tabBarActiveBackgroundColor: '#1E90FF',
-                    tabBarInactiveTintColor: 'white',
-                    tabBarActiveTintColor: 'white',
-                }}
-            >
-                <Screen name="AppList" component={AppList}
-                    options={{
-                        tabBarIcon: ({ size, color }) => (
-                            <Ionicons name="list-circle-outline" size={30} color="white" />
-                        ),
-                        tabBarLabel: "Transações"
-                    }}
-                />
-                <Screen name="AppForm" component={AppForm}
-                    options={{
-                        tabBarIcon: ({ size, color }) => (
-                            <MaterialIcons name="add-circle-outline" size={30} color="white" />
-                        ),
-                        tabBarLabel: "Adicionar"
-                    }}
-                />
-
-            </Navigator>
-        </NavigationContainer>
-    );
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      tabBarOptions={{
+        showLabel: false,
+        
+        style: {
+          position: 'absolute',
+          bottom: 25,
+          left: 20,
+          right: 20,
+          elevation: 0,
+          backgroundColor: '#fff',
+          borderRadius: 15,
+          height: 90,
+          ...style.shadow,
+        },
+        
+      }}>
+      <Tab.Screen name="Home" component={AppForm} />
+      <Tab.Screen name="List" component={AppList} />
+    </Tab.Navigator>
+  );
 }
 
-
+const style = StyleSheet.create({
+  shadow: {
+    shadowColor: '#7F5DF0',
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 5,
+  },
+  teste: {
+    position: 'absolute',
+    bottom: 25,
+    left: 20,
+    right: 20,
+    elevation: 0,
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    height: 90,
+  },
+});
 
 export default AppTab;
-
-
