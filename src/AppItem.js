@@ -5,7 +5,7 @@ import { Feather as Icon } from '@expo/vector-icons';
 
 export default function AppItem(props) {
 
-
+// FUNÇÃO DE DELETAR UM ITEM
     function handleDeletePress() {
         Alert.alert(
             "Atenção",
@@ -27,12 +27,12 @@ export default function AppItem(props) {
         );
     }
 
-
+// FUNÇÃO DE EDITAR
     async function handleEditPress() {
         const item = await Database.getItem(props.id);
         props.navigation.navigate("AppForm", item);
     }
-
+// BOTÕES DE DELETAR E EDITAR
     return (
         <View style={styles.container}>
             <Text style={styles.textItem}>{props.item}</Text>
