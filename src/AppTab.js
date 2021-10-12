@@ -12,11 +12,14 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 
 // IMPORTAÇÃO DAS PAGINAS DA TABBAR
-import AppHome from './AppHome';
-import AppCalendar from './AppCalendar'
+
+import AppCalendar from './AppCalendar';
 import AppForm from './AppForm';
+import AppHome from './AppHome';
 import AppNotification from './AppNotification';
 import AppProfile from './AppProfile';
+
+
 
 // FUNÇÃO DA NAVEGAÇÃO
 const Tab = createBottomTabNavigator();
@@ -34,8 +37,11 @@ function AppTab() {
     <NavigationContainer theme={theme}>
       <Tab.Navigator
         screenOptions={{
+          ShowLabel: false,
+          showIcon: true,
           headerShown: false,
-          tabBarStyle: {
+          tabBarStyle: [{
+            display: 'flex',
             backgroundColor: 'white',
             position: 'absolute',
             flexDirection: 'row',
@@ -47,18 +53,14 @@ function AppTab() {
             elevation: 0,
             borderRadius: 5,
             height: 45,
-          },
+          }, null ]
         }}
-        tabBarOptions={{
-          showLabel: false,
-          showIcon: true,
-          
-        }}>
+        >
         <Tab.Screen
           name="Home"
-          component={AppHome}
+          component= {AppHome} 
           options={{
-            tabBarLabel: 'Home',
+            
             tabBarIcon: ({ color, size }) => (
               <SimpleLineIcons name="home" size={20} color="#0077FF" />
             ),
@@ -66,7 +68,7 @@ function AppTab() {
         />
         <Tab.Screen name="Calendar" component={AppCalendar} 
         options={{
-            tabBarLabel: 'Calendar',
+            
             tabBarIcon: ({ color, size }) => (
               <Fontisto name="date" size={20} color="#0077FF" />
             ),
@@ -74,7 +76,6 @@ function AppTab() {
         />
         <Tab.Screen name="Cadastrar" component={AppForm} 
         options={{
-            tabBarLabel: 'Cadastrar',
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="add-circle-outline" size={24} color="#0077FF" />
             ),
@@ -82,7 +83,7 @@ function AppTab() {
         />
         <Tab.Screen name="Notification" component={AppNotification} 
         options={{
-            tabBarLabel: 'Notification',
+            
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="notifications-outline" size={21} color="#0077FF" />
             ),
@@ -90,7 +91,7 @@ function AppTab() {
         />
         <Tab.Screen name="Profile" component={AppProfile} 
         options={{
-            tabBarLabel: 'Profile',
+            
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="person-outline" size={20} color="#0077FF" />
             ),

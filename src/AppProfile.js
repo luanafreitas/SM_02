@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 
 
 
-export default function AppForm() {
+export default function AppProfile() {
   
     return (
       
