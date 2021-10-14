@@ -5,7 +5,7 @@ import AppItem from './AppItem';
 import Database from './Database';
 
 
-export default function AppList({ route, navigation }) {
+export default function AppCalendar({ route, navigation }) {
     const [items, setItems] = useState([]);
     const [busca, setBusca] = useState('');
     const dadosFiltrados = items.filter((item) => item.titulo.toLowerCase().includes(busca.toLowerCase()));
