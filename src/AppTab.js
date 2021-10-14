@@ -37,10 +37,9 @@ function AppTab() {
     <NavigationContainer theme={theme}>
       <Tab.Navigator
         screenOptions={{
-          showLabel: false,
-
-
-          //showIcon: true,
+          tabBarShowLabel: false,
+          
+          
           //headerShown: false,
           
           tabBarStyle: [{
@@ -57,9 +56,14 @@ function AppTab() {
             borderRadius: 5,
             height: 50,
             
+            
           }, null],
           
+          
         }}
+
+        
+        
       >
         <Tab.Screen
           name="Home"
