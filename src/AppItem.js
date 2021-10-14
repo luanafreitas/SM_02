@@ -5,7 +5,7 @@ import { Feather as Icon } from '@expo/vector-icons';
 
 export default function AppItem(props) {
 
-// FUNÇÃO DE DELETAR UM ITEM
+
     function handleDeletePress() {
         Alert.alert(
             "Atenção",
@@ -19,7 +19,7 @@ export default function AppItem(props) {
                 {
                     text: "Sim", onPress: () => {
                         Database.deleteItem(props.id)
-                            .then(_response => props.navigation.navigate("AppList", { id: props.id }));
+                            .then(_response => props.navigation.navigate("Calendar", { id: props.id }));
                     }
                 }
             ],
@@ -27,15 +27,26 @@ export default function AppItem(props) {
         );
     }
 
-// FUNÇÃO DE EDITAR
+
     async function handleEditPress() {
         const item = await Database.getItem(props.id);
-        props.navigation.navigate("AppForm", item);
+        props.navigation.navigate("Cadastrar", item);
     }
-// BOTÕES DE DELETAR E EDITAR
+
     return (
         <View style={styles.container}>
-            <Text style={styles.textItem}>{props.item}</Text>
+            
+            <Text 
+            style={styles.textItem} 
+            onPress={() => props.navigation.navigate("Profile")}
+            >{props.item}
+
+            
+
+ 
+                </Text>  
+
+                 
 
             <View style={styles.buttonsContainer}>
                 <TouchableOpacity
@@ -49,58 +60,49 @@ export default function AppItem(props) {
                     <Icon name="edit" color="#1E90FF" size={18} />
                 </TouchableOpacity>
             </View>
+
+            
         </View>
     );
 }
 
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#1C1C1C',
-        borderRadius: 5,
-        marginTop: 10,
-        paddingHorizontal: 24,
-        alignItems: 'stretch',
-        height: 270,
-        width: 335
-    },
     buttonsContainer: {
-        flexDirection: 'row-reverse',
-        alignContent: 'flex-end'
+        //flexDirection: 'row-reverse',
+        //alignContent: 'flex-end',
+        //flexDirection: 'row-reverse',
+        //justifyContent: 'space-between',
+        
+        backgroundColor: 'black',
+        width: '20%'
     },
     editButton: {
-        backgroundColor: '#1C1C1C',
+        backgroundColor: 'transparent',
         fontSize: 12,
-        marginLeft: 0,
-        height: 30,
-        bottom: 110,
-        right: 42,
-        padding: 5,
-        elevation: 10,
-        shadowOpacity: 10,
-        shadowColor: '#ccc',
-        alignItems: 'center'
+        
+        alignItems: 'center',
+        alignSelf: "flex-end"
     },
     deleteButton: {
-        backgroundColor: '#1C1C1C',
+        backgroundColor: 'transparent',
         fontSize: 12,
-        bottom: 170,
-        padding: 5,
-        marginLeft: 13,
-        height: 30,
-        elevation: 10,
-        shadowOpacity: 10,
-        shadowColor: '#1E90FF',
+    
+        alignSelf: "flex-end"
+        
+        
     },
-    buttonText: {
-        color: '#fff',
-        fontWeight: 'bold',
-    },
+    
     textItem: {
-        backgroundColor: '#1C1C1C',
-        color: 'white',
+        color: 'black',
         fontSize: 16,
         fontWeight: '300',
         marginTop: 10,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        paddingHorizontal: 20,
+        height: 100,
+        width: 335,
+        elevation: 5,
     }
 });

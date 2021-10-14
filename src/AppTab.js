@@ -38,8 +38,10 @@ function AppTab() {
       <Tab.Navigator
         screenOptions={{
           ShowLabel: false,
-          showIcon: true,
-          headerShown: false,
+
+
+          //showIcon: true,
+          //headerShown: false,
           tabBarStyle: [{
             display: 'flex',
             backgroundColor: 'white',
@@ -53,52 +55,53 @@ function AppTab() {
             elevation: 0,
             borderRadius: 5,
             height: 45,
-          }, null ]
+          }, null]
         }}
-        >
+      >
         <Tab.Screen
           name="Home"
-          component= {AppHome} 
+          component={AppHome}
           options={{
-            
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
               <SimpleLineIcons name="home" size={20} color="#0077FF" />
             ),
           }}
         />
-        <Tab.Screen name="Calendar" component={AppCalendar} 
-        options={{
-            
+        <Tab.Screen name="Calendar" component={AppCalendar}
+          options={{
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
               <Fontisto name="date" size={20} color="#0077FF" />
             ),
-            }}
+          }}
         />
-        <Tab.Screen name="Cadastrar" component={AppForm} 
-        options={{
+        <Tab.Screen name="Cadastrar" component={AppForm}
+          options={{
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="add-circle-outline" size={24} color="#0077FF" />
             ),
-            }}
+          }}
         />
-        <Tab.Screen name="Notification" component={AppNotification} 
-        options={{
-            
+        <Tab.Screen name="Notification" component={AppNotification}
+          options={{
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="notifications-outline" size={21} color="#0077FF" />
             ),
-            }}
+          }}
         />
-        <Tab.Screen name="Profile" component={AppProfile} 
-        options={{
-            
+        <Tab.Screen name="Profile" component={AppProfile}
+          options={{
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="person-outline" size={20} color="#0077FF" />
             ),
-            }}
+          }}
         />
-         
-        
+
+
       </Tab.Navigator>
     </NavigationContainer>
   );

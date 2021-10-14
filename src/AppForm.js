@@ -3,15 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import Database from './Database';
 import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
-  const UselessTextInput = (props) => {
-  return (
-    <TextInput
-      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
-      editable
-      maxLength={10000}
-    />
-  );
+const UselessTextInput = (props) => {
+    return (
+        <TextInput
+            {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+            editable
+            maxLength={10000}
+        />
+    );
 }
 
 export default function AppForm({ route, navigation }) {
@@ -19,8 +20,8 @@ export default function AppForm({ route, navigation }) {
     const [descricao, setDescricao] = useState('');
     const [titulo, setTitle] = useState('');
     const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
-  
-    
+
+
 
     useEffect(() => {
         if (!route.params) return;
@@ -30,12 +31,12 @@ export default function AppForm({ route, navigation }) {
 
     function handleDescriptionChange(descricao) { setDescricao(descricao); }
     function handleTitleChange(titulo) { setTitle(titulo); }
-    
+
 
     async function handleButtonPress() {
-        const listItem = { descricao, aluguel: parseFloat(aluguel), energia: parseFloat(energia), internet: parseFloat(internet) };
+        const listItem = { descricao, titulo };
         Database.saveItem(listItem, id)
-            .then(_response => navigation.navigate("AppList", listItem));
+            .then(_response => navigation.navigate("Calendar", listItem));
     }
 
 
@@ -43,14 +44,21 @@ export default function AppForm({ route, navigation }) {
         <View style={styles.container}>
             <Text style={styles.title}>SM</Text>
             <View style={styles.inputContainer}>
-                <TextInput
-                   style={styles.titleInput}
-                    onChangeText={value => handleTitleChange(value)}
-                    placeholder="Título"
-                    placeholderTextColor="#888"
-                    clearButtonMode="always"
-                    value={titulo}
-                />
+                <View style={styles.button}>
+                    <TouchableOpacity style={styles.buttonContainer} onPress={handleButtonPress}>
+
+                        <AntDesign name="check" size={24} color="black" />
+
+                    </TouchableOpacity>
+                    <TextInput
+                        style={styles.titleInput}
+                        onChangeText={value => handleTitleChange(value)}
+                        placeholder="Título"
+                        placeholderTextColor="#888"
+                        clearButtonMode="always"
+                        value={titulo}
+                    />
+                </View>
                 <UselessTextInput
                     style={styles.input}
                     onChangeText={value => handleDescriptionChange(value)}
@@ -59,9 +67,9 @@ export default function AppForm({ route, navigation }) {
                     clearButtonMode="always"
                     value={descricao}
                     multiline numberOfLines={4}
-                    
+
                 />
-                
+
 
             </View>
             <StatusBar style="light" />
@@ -97,21 +105,51 @@ const styles = StyleSheet.create({
         fontWeight: '300',
         height: '70%',
         shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 10,
-            },
-            shadowOpacity: 0.12,
-            shadowRadius: 10,
-            padding: 20,
-            //outline: 0,
-            
-         
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.12,
+        shadowRadius: 10,
+        padding: 20,
+        
+        
+
+
+    },
+
+    titleInput: {
+        fontSize: 17,
+        width: '70%',
+        backgroundColor: 'white',
+        alignSelf: 'flex-start',
         
     },
-    
-    titleInput:{
-        fontSize: 17,
-        //outline: 0,
+    button: {
+       
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-between',
+        
+        
+
+        borderRadius: 5,
+
+        fontSize: 16,
+
+       
+        fontWeight: '300',
+       
     },
+    buttonContainer: {
+       alignSelf: 'flex-start',
+      
+     /* elevation: 20,
+        shadowOpacity: 20,
+        shadowColor: 'black',*/
+      
+
+
+
+    },
+
 });
