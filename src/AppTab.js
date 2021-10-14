@@ -37,32 +37,35 @@ function AppTab() {
     <NavigationContainer theme={theme}>
       <Tab.Navigator
         screenOptions={{
-          ShowLabel: false,
+          showLabel: false,
 
 
           //showIcon: true,
           //headerShown: false,
+          
           tabBarStyle: [{
             display: 'flex',
             backgroundColor: 'white',
             position: 'absolute',
             flexDirection: 'row',
             justifyContent: 'center',
-            alignItems: 'center',
+            //alignItems: 'center',
             bottom: 25,
             left: 20,
             right: 20,
-            elevation: 0,
+            elevation: 3,
             borderRadius: 5,
-            height: 45,
-          }, null]
+            height: 50,
+            
+          }, null],
+          
         }}
       >
         <Tab.Screen
           name="Home"
           component={AppHome}
           options={{
-            tabBarLabel: '',
+            
             tabBarIcon: ({ color, size }) => (
               <SimpleLineIcons name="home" size={20} color="#0077FF" />
             ),
@@ -70,7 +73,7 @@ function AppTab() {
         />
         <Tab.Screen name="Calendar" component={AppCalendar}
           options={{
-            tabBarLabel: '',
+            
             tabBarIcon: ({ color, size }) => (
               <Fontisto name="date" size={20} color="#0077FF" />
             ),
@@ -78,7 +81,7 @@ function AppTab() {
         />
         <Tab.Screen name="Cadastrar" component={AppForm}
           options={{
-            tabBarLabel: '',
+            
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="add-circle-outline" size={24} color="#0077FF" />
             ),
@@ -86,7 +89,7 @@ function AppTab() {
         />
         <Tab.Screen name="Notification" component={AppNotification}
           options={{
-            tabBarLabel: '',
+            
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="notifications-outline" size={21} color="#0077FF" />
             ),
@@ -94,7 +97,7 @@ function AppTab() {
         />
         <Tab.Screen name="Profile" component={AppProfile}
           options={{
-            tabBarLabel: '',
+           
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="person-outline" size={20} color="#0077FF" />
             ),

@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
         color: '#1E90FF',
         fontSize: 20,
         fontWeight: '400',
+        
 
     },
     inputContainer: {
@@ -112,6 +113,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.12,
         shadowRadius: 10,
         padding: 20,
+        elevation: 2,
+        borderRadius: 5,
+        paddingHorizontal: 10,
         
         
 
@@ -123,6 +127,9 @@ const styles = StyleSheet.create({
         width: '70%',
         backgroundColor: 'white',
         alignSelf: 'flex-start',
+        elevation: 2,
+        borderRadius: 5,
+        paddingHorizontal: 10,
         
     },
     button: {

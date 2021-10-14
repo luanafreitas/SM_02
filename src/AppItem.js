@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import Database from './Database';
 import { Feather as Icon } from '@expo/vector-icons';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/core';
 
 export default function AppItem(props) {
 
@@ -35,74 +36,105 @@ export default function AppItem(props) {
 
     return (
         <View style={styles.container}>
+            <View style={styles.buttons}>
+            <Text style={styles.textItem}>{props.item}</Text>
             
-            <Text 
-            style={styles.textItem} 
-            onPress={() => props.navigation.navigate("Profile")}
-            >{props.item}
-
             
-
- 
-                </Text>  
-
-                 
-
-            <View style={styles.buttonsContainer}>
                 <TouchableOpacity
                     style={styles.deleteButton}
                     onPress={handleDeletePress}>
                     <Icon name="trash" color="#1E90FF" size={18} />
                 </TouchableOpacity>
+                
                 <TouchableOpacity
                     style={styles.editButton}
                     onPress={handleEditPress}>
                     <Icon name="edit" color="#1E90FF" size={18} />
                 </TouchableOpacity>
+            
             </View>
 
-            
+
         </View>
     );
 }
 
 
 const styles = StyleSheet.create({
-    buttonsContainer: {
-        //flexDirection: 'row-reverse',
-        //alignContent: 'flex-end',
-        //flexDirection: 'row-reverse',
-        //justifyContent: 'space-between',
+    container:{
         
+        
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        
+       
+        marginTop: 10,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        paddingHorizontal: 1,
+        
+        
+        elevation: 5,
+
+
+    },
+    buttons:{
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        
+        
+
+        borderRadius: 5,
+
+        fontSize: 16,
+
+       
+        fontWeight: '300',
+        
+
+
+    },
+    buttonsContainer: {
+       
+
         backgroundColor: 'black',
-        width: '20%'
+        
     },
     editButton: {
-        backgroundColor: 'transparent',
+        flex: 1,
+        flexDirection: 'column',
+        
         fontSize: 12,
         
-        alignItems: 'center',
-        alignSelf: "flex-end"
+        marginTop: 15,
+
+        
     },
     deleteButton: {
-        backgroundColor: 'transparent',
+        flex:1,
+        
+        
         fontSize: 12,
-    
-        alignSelf: "flex-end"
         
+        marginTop: 15,
         
+
+        
+
+
     },
-    
+
     textItem: {
         color: 'black',
         fontSize: 16,
         fontWeight: '300',
         marginTop: 10,
+        marginBottom: 10, 
         backgroundColor: 'white',
         borderRadius: 5,
-        paddingHorizontal: 20,
-        height: 100,
+        paddingHorizontal: 15,
+        
         width: 335,
-        elevation: 5,
+        
     }
 });

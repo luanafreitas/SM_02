@@ -35,8 +35,8 @@ export default function AppList({ route, navigation }) {
                 contentContainerStyle={styles.itemsContainer}>
                 {dadosFiltrados.map(item => {
                     return <AppItem key={item.id} id={item.id} item={
-                        'Titulo                            ' + item.descricao +
-                        '\n\nDescrição                  ' + item.titulo }
+                        'Titulo                            ' + item.titulo +
+                        '\n\nDescrição                  ' + item.descricao }
                         navigation={navigation} />
                 })}
             </ScrollView>
@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
         flex: 1,
-        width: '70%',
+        width: '80%',
+        
     },
     itemsContainer: {
         flexGrow: 1,
