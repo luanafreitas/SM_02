@@ -100,10 +100,10 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         fontWeight: '300',
         height: '70%',
-        
+        backgroundColor: 'white',
         padding: 20,
-        elevation: 1,
-        borderRadius: 5,
+        elevation: 2,
+        
         paddingHorizontal: 10,
     },
     titleInput: {
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         width: '60%',
         backgroundColor: 'white',
         alignSelf: 'flex-start',
-        elevation: 1,
+        elevation: 2,
         borderRadius: 5,
         paddingHorizontal: 10,
     },

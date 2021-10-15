@@ -2,8 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import AppTab from './src/AppTab';
-
-
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 
 
@@ -14,11 +12,8 @@ function App() {
     <ImageBackground  
     source={require('./assets/fundo_provisorio.jpg')} 
     style={styles.image} >
-
-
-
-
-      <AppTab />
+     
+     <AppTab />
 
      </ImageBackground> 
      </View>
