@@ -27,7 +27,6 @@ export default function AppCalendar({ route, navigation }) {
                 value={busca}
                 onChangeText={(t) => setBusca(t)}
             />
-
             <Text style={styles.title}>Anotações</Text>
 
             <ScrollView

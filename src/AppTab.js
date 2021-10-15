@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
+
 // IMPORTAÇÃO DOS ICONES DA TABBAR
 import { Ionicons } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
@@ -24,6 +25,7 @@ import AppProfile from './AppProfile';
 // FUNÇÃO DA NAVEGAÇÃO
 const Tab = createBottomTabNavigator();
 
+
 // FUNÇÃO PRA DEIXAR O PLANO DE FUNDO TRANSPARENTE
 const theme = {
   colors: {
@@ -35,6 +37,8 @@ const theme = {
 function AppTab() {
   return (
     <NavigationContainer theme={theme}>
+
+
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
@@ -107,6 +111,7 @@ function AppTab() {
             ),
           }}
         />
+        
 
 
       </Tab.Navigator>

@@ -37,7 +37,13 @@ export default function AppItem(props) {
     return (
         <View style={styles.container}>
             <View style={styles.buttons}>
-            <Text style={styles.textItem}>{props.item}</Text>
+            <Text style={styles.textItem}
+             
+            >
+
+                {props.item}</Text>
+
+            
             
             
                 <TouchableOpacity
@@ -80,19 +86,10 @@ const styles = StyleSheet.create({
     },
     buttons:{
         flexDirection: 'row',
-        justifyContent: 'flex-start',
-        
-        
-
+        //justifyContent: 'center',
         borderRadius: 5,
-
         fontSize: 16,
-
-       
         fontWeight: '300',
-        
-
-
     },
     buttonsContainer: {
        
@@ -133,8 +130,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         paddingHorizontal: 15,
-        
-        width: 335,
+        width: 250,
         
     }
 });
