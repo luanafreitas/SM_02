@@ -26,7 +26,7 @@ export default function AppForm({ route, navigation }) {
     useEffect(() => {
         if (!route.params) return;
         setDescricao(route.params.descricao);
-        setTitle(route.params.titulo.toString());
+        setTitle(route.params.titulo);
     }, [route])
 
     function handleDescriptionChange(descricao) { setDescricao(descricao); }
@@ -67,9 +67,7 @@ export default function AppForm({ route, navigation }) {
                     clearButtonMode="always"
                     value={descricao}
                     multiline numberOfLines={4}
-
                 />
-
 
             </View>
             <StatusBar style="light" />
@@ -81,82 +79,54 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-
     },
     title: {
         color: '#1E90FF',
         fontSize: 20,
         fontWeight: '400',
-        
-
     },
     inputContainer: {
         flex: 1,
         marginTop: 30,
-        width: '90%',
+        width: '85%',
         alignItems: 'stretch',
         fontWeight: '300',
     },
     input: {
         marginTop: 10,
         borderRadius: 5,
-        paddingHorizontal: 24,
+        //paddingHorizontal: 24,
         fontSize: 16,
         alignItems: 'stretch',
         fontWeight: '300',
         height: '70%',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        shadowOpacity: 0.12,
-        shadowRadius: 10,
+        
         padding: 20,
-        elevation: 2,
+        elevation: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
-        
-        
-
-
     },
-
     titleInput: {
+
         fontSize: 17,
-        width: '70%',
+        width: '60%',
         backgroundColor: 'white',
         alignSelf: 'flex-start',
-        elevation: 2,
+        elevation: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
-        
     },
     button: {
-       
+
         flexDirection: 'row-reverse',
         justifyContent: 'space-between',
-        
-        
-
         borderRadius: 5,
-
         fontSize: 16,
-
-       
         fontWeight: '300',
-       
     },
     buttonContainer: {
-       alignSelf: 'flex-start',
-      
-     /* elevation: 20,
-        shadowOpacity: 20,
-        shadowColor: 'black',*/
-      
 
-
-
+        alignSelf: 'flex-start',
     },
 
 });
