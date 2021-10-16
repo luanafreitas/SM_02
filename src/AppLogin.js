@@ -43,12 +43,12 @@ export default function AppLogin() {
                     </TouchableOpacity>
 
                    <Text style={styles.link}
-                        onPress={() => Linking.openURL('')}
+                        //onPress={() => Linking.openURL('')}
                     >
                         Esqueci a senha
                    </Text>
                    <Text style={styles.link}
-                        onPress={() => Linking.openURL('')}
+                        //onPress={() => Linking.openURL('')}
                     >
                         Cadastre-se
                    </Text> 
