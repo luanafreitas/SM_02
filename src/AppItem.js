@@ -68,7 +68,7 @@ export default function AppItem(props) {
 
 const styles = StyleSheet.create({
     container:{
-        
+        marginTop: 50,
         
         justifyContent: 'space-between',
         flexDirection: 'row',

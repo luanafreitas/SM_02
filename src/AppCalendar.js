@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, ScrollView, TextInput } from 'react-native';
-import AppItem from './AppItem';
+import AppItem from 's./AppItem';
 import Database from './Database';
 
 
