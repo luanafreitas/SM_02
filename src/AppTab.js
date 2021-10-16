@@ -87,7 +87,7 @@ function AppTab() {
             ),
           }}
         />
-        <Tab.Screen name="Calendar" component={AppCalendar}
+        <Tab.Screen name="Listagem" component={AppCalendar}
           options={{
 
             tabBarIcon: ({ color, size }) => (

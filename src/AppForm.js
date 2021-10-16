@@ -36,7 +36,7 @@ export default function AppForm({ route, navigation }) {
     async function handleButtonPress() {
         const listItem = { descricao, titulo };
         Database.saveItem(listItem, id)
-            .then(_response => navigation.navigate("Calendar", listItem));
+            .then(_response => navigation.navigate("Listagem", listItem));
     }
 
 
@@ -79,11 +79,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
+        
+        
     },
     title: {
         color: '#1E90FF',
         fontSize: 20,
         fontWeight: '400',
+        
     },
     inputContainer: {
         flex: 1,

@@ -4,56 +4,26 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, Linking, S
 
 
 
+
 export default function AppHome() {
-  
+
     return (
 
-            <View style={styles.container}>
+        <View style={styles.container}>
+            <Text
+                style={styles.title}>
+                Student Manager
+            </Text>
+
+            <View style={styles.login}>
                 <Text
-                    style={styles.title}>
-                        Student Manager
+                    style={styles.subtitle}>
+                    Olá, seja bem vindo!
+                    
                 </Text>
 
-                <View style={styles.login}>
-                    <Text
-                        style={styles.subtitle}>
-                        Olá, seja bem vindo!
-                    </Text>
-
-                    <TextInput
-                        style={styles.input}
-                        placeholder='E-mail'
-                    />
-
-                    <TextInput
-                        style={styles.input}
-                        secureTextEntry={true}
-                        placeholder='Senha'
-                    />
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        //onPress={ () => {this.click()}}
-                    >
-                        <Text style={{color: "white"}}> Entrar 
-                        </Text>
-
-
-
-                    </TouchableOpacity>
-
-                   <Text style={styles.link}
-                        onPress={() => Linking.openURL('')}
-                    >
-                        Esqueci a senha
-                   </Text>
-                   <Text style={styles.link}
-                        onPress={() => Linking.openURL('')}
-                    >
-                        Cadastre-se
-                   </Text> 
-                </View>
             </View>
+        </View>
     );
 };
 
@@ -76,11 +46,17 @@ const styles = StyleSheet.create({
     subtitle: {
         color: "#0077FF",
         fontSize: 25,
-        margin: 20
+        margin: 20,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        alignItems: 'center'
     },
 
     login: {
-        marginTop: 40
+        width: '70%',
+        height: '50%',
+        marginTop: 0,
+        backgroundColor: 'transparent',
     },
 
     input: {
@@ -94,13 +70,13 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        alignItems:'center',
-        alignContent:  'center',
+        alignItems: 'center',
+        alignContent: 'center',
         alignSelf: 'center',
-        justifyContent:'center',
-        width:190,
-        height:32,
-        backgroundColor:'#157AEC',
+        justifyContent: 'center',
+        width: 190,
+        height: 32,
+        backgroundColor: '#157AEC',
         borderRadius: 15,
         paddingLeft: 'auto',
         fontSize: 16,
@@ -113,4 +89,4 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         textDecorationLine: 'underline'
     }
-}); 
+});
