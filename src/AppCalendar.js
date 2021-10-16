@@ -8,7 +8,7 @@ import Database from './Database';
 export default function AppCalendar({ route, navigation }) {
     const [items, setItems] = useState([]);
     const [busca, setBusca] = useState('');
-    const dadosFiltrados = items.filter((item) => item.titulo.toLowerCase().includes(busca.toLowerCase()));
+    const dadosFiltrados = items.filter((item) => item?.titulo?.toLowerCase().includes(busca?.toLowerCase()) || item?.descricao?.toLowerCase().includes(busca?.toLowerCase()));
 
     useEffect(() => {
         Database.getItems().then(items => setItems(items));
