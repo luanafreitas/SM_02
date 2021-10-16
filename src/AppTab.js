@@ -11,6 +11,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 // IMPORTAÇÃO DAS PAGINAS DA TABBAR
 
@@ -91,7 +92,7 @@ function AppTab() {
           options={{
 
             tabBarIcon: ({ color, size }) => (
-              <Fontisto name="date" size={20} color="#0077FF" />
+              <AntDesign name="book" size={20} color="#0077FF" />
             ),
           }}
         />
