@@ -21,6 +21,11 @@ export default function AppHome() {
                     Olá, seja bem vindo!
                     
                 </Text>
+                <Text style={styles.citation}>
+                    "É melhor você tentar algo, vê-lo não funcionar e aprender com isso, do que não fazer nada."
+                    <br/><br/>
+                    -Mark Zuckerberg
+                </Text>
 
             </View>
         </View>
@@ -52,41 +57,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    login: {
-        width: '70%',
-        height: '50%',
-        marginTop: 0,
-        backgroundColor: 'transparent',
-    },
-
-    input: {
-        marginTop: 5,
-        padding: 10,
-        width: 243,
-        fontSize: 16,
-        alignItems: 'center',
-        justifyContent: 'center'
-
-    },
-
-    button: {
-        alignItems: 'center',
-        alignContent: 'center',
-        alignSelf: 'center',
-        justifyContent: 'center',
-        width: 190,
-        height: 32,
-        backgroundColor: '#157AEC',
-        borderRadius: 15,
-        paddingLeft: 'auto',
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-
-    link: {
-        color: 'blue',
-        margin: 5,
-        alignSelf: 'center',
-        textDecorationLine: 'underline'
+    citation: {
+        color: "#004FA8",
+        fontStyles: 'italic',
+        fontWeight: 'bold',
+        margin: 25,
+        textAlign: 'justify',
     }
 });
