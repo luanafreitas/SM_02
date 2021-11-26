@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 0,
     fontFamily: 'Roboto',
     alignItems: 'center',
+    //backgroundColor: 'red',
   },
 
   inputContainer: {
@@ -89,11 +90,12 @@ const styles = StyleSheet.create({
     width: '85%',
     alignItems: 'stretch',
     fontWeight: '300',
+    //: 'blue',
   },
 
   input: {
     height: 50,
-    width: 335,
+    
     backgroundColor: 'white',
     elevation: 5,
     alignItems: "center",
@@ -112,7 +114,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     fontWeight: '400',
-
+    alignSelf: 'center',
+    
+    
     marginTop: 10,
     marginBottom: 30,
   },
@@ -121,20 +125,26 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '400',
     marginBottom: 10,
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     paddingHorizontal: 80,
+    
+
   },
   scrollContainer: {
     flex: 1,
     width: '80%',
+    //backgroundColor: 'black',
+    alignSelf: 'center'
   },
   itemsContainer: {
     flexGrow: 1,
     fontWeight: '300',
     fontSize: 16,
     alignSelf: 'stretch',
-    borderTopWidth: 1,
+borderBottomWidth: 1,
     borderColor: '#A9A9A9',
+    
+    
   },
 });
 

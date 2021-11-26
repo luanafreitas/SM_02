@@ -84,10 +84,7 @@ const MyStack = () => {
 
               <Screen name="HomeScreen" component={HomeScreen} 
               options={{ headerShown: false }} />
-
-
               
-
               <Screen name="ProfileScreen" component={ProfileScreen} 
               options={{ title: 'My Profile' }} />
             </>

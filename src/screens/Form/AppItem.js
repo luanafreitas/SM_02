@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         
-       
+       alignSelf: 'center',
         marginTop: 10,
         backgroundColor: 'white',
         borderRadius: 5,
