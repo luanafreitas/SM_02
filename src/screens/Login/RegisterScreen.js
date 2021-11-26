@@ -1,15 +1,15 @@
 // IMPORTAÇÃO DAS BIBLIOTECAS
 import React, { useState, memo } from 'react';
 import {} from 'react-native';
-import { Text, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-
+import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 // IMPORTAÇÃO DAS PASTAS DO REDUX E BANCO DE DADOS
 import Storage from '../../helpers/storage';
 import toaster from '../../helpers/toaster';
 import checkValidation from '../../helpers/checkInputValidation';
 import { setUserLoggedIn } from '../../helpers/login';
-
+import styles from '../Bookmarks/styles';
 
 // IMPORTAÇÃO DOS ICONES
 import { Entypo } from '@expo/vector-icons';
@@ -139,20 +139,5 @@ const RegisterScreen = (props) => {
 };
 
 export default memo(RegisterScreen);
-
-const styles = StyleSheet.create({
-
-  container: { flex: 1 },
-  searchWrapper: {height: 60,  backgroundColor: 'transparent', marginTop: 24 },
-  searchResultsContainer: {backgroundColor: 'lightgrey' },
-  searchItem: {padding: 12, flex: 1, flexDirection: 'row' },
-  title: {padding: 12, fontSize: 12, fontWeight: 'bold', color:'black', flexDirection: 'row'},
-  sortBy:{ fontWeight: 'bold' },
-  filterWrapper: { flex: 1, flexDirection: 'row', alignItem: 'center', justifyContent: 'flex-start', marginLeft: 12 },
-  resetWrapper: { flex: 1,alignItems: 'flex-end'},
-  flatlistWrapper: { paddingBottom: 50, flex: 1 },
-
-
-});
 
 // can explore SecureStore for further implementation

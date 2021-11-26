@@ -7,6 +7,10 @@ const INITIAL_STATE = {
  data: []
 }
 
+export function search(value) {
+  return { type: 'SEARCH', value };
+}
+
 const store = createStore(
   books,
   applyMiddleware(thunk, reduxPackMiddleware),
@@ -23,6 +27,9 @@ function books(state = INITIAL_STATE, action) {
         ...state,
         data: state.data.filter(i => i.id !== action.id)
       }
+      case 'SEARCH':
+      const item = state.data.filter(response => response.includes(action.title))
+      return {...state, } 
       default:
       return state;
   }

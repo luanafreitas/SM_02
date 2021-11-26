@@ -120,16 +120,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 30,
   },
-  title: {
-    color: '#1E90FF',
-    fontSize: 20,
-    fontWeight: '400',
-    marginBottom: 10,
-    alignSelf: 'center',
-    paddingHorizontal: 80,
-    
-
-  },
+  
   scrollContainer: {
     flex: 1,
     width: '80%',

@@ -1,5 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, FlatList, StyleSheet } from 'react-native';
+import SearchBar from '../../components/SearchBar';
+import ListItemComponent from '../../components/ListItemComponent';
 import Footer from '../../components/Footer';
 
 

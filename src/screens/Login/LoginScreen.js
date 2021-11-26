@@ -1,7 +1,7 @@
 // IMPORTAÇÃO DE BIBLIOTECAS
 import React, { useState, memo } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
-
+import { Icon } from 'react-native-elements';
 
 //IMPORTAÇÃO DE PASTAS REDUX
 import Storage from '../../helpers/storage';

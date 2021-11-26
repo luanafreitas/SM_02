@@ -35,8 +35,8 @@ const dispatch = useDispatch();
 
 
     async function handleEditPress() {
-        const item = await Database.getItem(props.id);
-        props.navigation.navigate("Cadastrar", item);
+        console.log(props.id)
+        props.navigation.navigate("AppForm", props.id);
     }
 
     return (
