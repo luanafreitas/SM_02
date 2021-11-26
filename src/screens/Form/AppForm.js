@@ -1,9 +1,12 @@
+//sdsadsd
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect, useCallback} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import Database from './Database';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import Footer from '../../components/Footer';
 
 const UselessTextInput = (props) => {
     return (
@@ -15,14 +18,20 @@ const UselessTextInput = (props) => {
     );
 }
 
-export default function AppForm({ route, navigation }) {
+
+const AppForm = (props, route, navigation) => {
     const id = route.params ? route.params.id : undefined;
     const [descricao, setDescricao] = useState('');
     const [titulo, setTitle] = useState('');
     const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+    const dispatch = useDispatch();
 
-
-
+const {
+    navigation: { navigate },
+  } = props;
+  
+  
+  
     useEffect(() => {
         if (!route.params) return;
         setDescricao(route.params.descricao);
@@ -35,8 +44,10 @@ export default function AppForm({ route, navigation }) {
 
     async function handleButtonPress() {
         const listItem = { descricao, titulo };
+      console.log('descricao', descricao)
+      dispatch({ type: 'ADD_ITEM', data: listItem })
         Database.saveItem(listItem, id)
-            .then(_response => navigation.navigate("Listagem", listItem));
+            .then(_response => navigate("AppList", listItem));
     }
 
 
@@ -46,10 +57,12 @@ export default function AppForm({ route, navigation }) {
             <View style={styles.inputContainer}>
                 <View style={styles.button}>
                     <TouchableOpacity style={styles.buttonContainer} onPress={handleButtonPress}>
+                    
 
                         <AntDesign name="check" size={24} color="black" />
 
                     </TouchableOpacity>
+                    
                     <TextInput
                         style={styles.titleInput}
                         onChangeText={value => handleTitleChange(value)}
@@ -68,12 +81,14 @@ export default function AppForm({ route, navigation }) {
                     value={descricao}
                     multiline numberOfLines={4}
                 />
-
+<Footer {...props} />
             </View>
             <StatusBar style="light" />
         </View>
     );
 }
+
+export default (AppForm);
 
 const styles = StyleSheet.create({
     container: {

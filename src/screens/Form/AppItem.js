@@ -3,29 +3,34 @@ import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import Database from './Database';
 import { Feather as Icon } from '@expo/vector-icons';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/core';
+import { useDispatch } from 'react-redux';
 
 export default function AppItem(props) {
-
-
+const dispatch = useDispatch();
     function handleDeletePress() {
-        Alert.alert(
-            "Atenção",
-            "Você tem certeza que deseja excluir este item?",
-            [
-                {
-                    text: "Não",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                },
-                {
-                    text: "Sim", onPress: () => {
-                        Database.deleteItem(props.id)
-                            .then(_response => props.navigation.navigate("Calendar", { id: props.id }));
-                    }
-                }
-            ],
-            { cancelable: false }
-        );
+      dispatch({ type: 'DELETE_ITEM', id: props.id })
+                      console.log('excluiu!!!!')
+                      console.log(props.id)
+        // Alert.alert(
+        //     "Atenção",
+        //     "Você tem certeza que deseja excluir este item?",
+        //     [
+        //         {
+        //             text: "Não",
+        //             onPress: () => console.log("Cancel Pressed"),
+        //             style: "cancel"
+        //         },
+        //         {
+        //             text: "Sim", onPress: () => {
+        //               dispatch({ type: 'DELETE_ITEM', index: props.id })
+        //               console.log('excluiu!!!!')
+        //                 // Database.deleteItem(props.id)
+        //                 //     .then(_response => props.navigation.navigate("Calendar", { id: props.id }));
+        //             }
+        //         }
+        //     ],
+        //     { cancelable: false }
+        // );
     }
 
 
@@ -130,7 +135,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         paddingHorizontal: 15,
-        width: 250,
-        
     }
 });

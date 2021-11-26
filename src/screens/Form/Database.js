@@ -16,6 +16,7 @@ async function getItem(id) {
 }
 
 async function saveItem(listItem, id) {
+  console.log(listItem, id)
     listItem.id = id ? id : new Date().getTime()
     const savedItems = await getItems();
 
@@ -25,6 +26,7 @@ async function saveItem(listItem, id) {
     }
     else
         savedItems.push(listItem);
+        console.log(savedItems)
 
     return AsyncStorage.setItem('items', JSON.stringify(savedItems));
 }
