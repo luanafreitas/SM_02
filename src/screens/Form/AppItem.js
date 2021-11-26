@@ -6,70 +6,56 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/core';
 import { useDispatch } from 'react-redux';
 
 export default function AppItem(props) {
-const dispatch = useDispatch();
-    function handleDeletePress() {
-      dispatch({ type: 'DELETE_ITEM', id: props.id })
-                      console.log('excluiu!!!!')
-                      console.log(props.id)
-        // Alert.alert(
-        //     "Atenção",
-        //     "Você tem certeza que deseja excluir este item?",
-        //     [
-        //         {
-        //             text: "Não",
-        //             onPress: () => console.log("Cancel Pressed"),
-        //             style: "cancel"
-        //         },
-        //         {
-        //             text: "Sim", onPress: () => {
-        //               dispatch({ type: 'DELETE_ITEM', index: props.id })
-        //               console.log('excluiu!!!!')
-        //                 // Database.deleteItem(props.id)
-        //                 //     .then(_response => props.navigation.navigate("Calendar", { id: props.id }));
-        //             }
-        //         }
-        //     ],
-        //     { cancelable: false }
-        // );
-    }
+  const dispatch = useDispatch();
+  function handleDeletePress() {
+    dispatch({ type: 'DELETE_ITEM', id: props.id });
+    console.log('excluiu!!!!');
+    console.log(props.id);
+    // Alert.alert(
+    //     "Atenção",
+    //     "Você tem certeza que deseja excluir este item?",
+    //     [
+    //         {
+    //             text: "Não",
+    //             onPress: () => console.log("Cancel Pressed"),
+    //             style: "cancel"
+    //         },
+    //         {
+    //             text: "Sim", onPress: () => {
+    //               dispatch({ type: 'DELETE_ITEM', index: props.id })
+    //               console.log('excluiu!!!!')
+    //                 // Database.deleteItem(props.id)
+    //                 //     .then(_response => props.navigation.navigate("Calendar", { id: props.id }));
+    //             }
+    //         }
+    //     ],
+    //     { cancelable: false }
+    // );
+  }
 
+  async function handleEditPress() {
+    console.log(props.id);
+    props.navigation.navigate('AppForm', props.id);
+  }
 
-    async function handleEditPress() {
-        console.log(props.id)
-        props.navigation.navigate("AppForm", props.id);
-    }
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttons}>
+        <Text style={styles.textItem}>{props.item}</Text>
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.buttons}>
-            <Text style={styles.textItem}
-             
-            >
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={handleDeletePress}>
+          <Icon name="trash" color="#1E90FF" size={18} />
+        </TouchableOpacity>
 
-                {props.item}</Text>
-
-            
-            
-            
-                <TouchableOpacity
-                    style={styles.deleteButton}
-                    onPress={handleDeletePress}>
-                    <Icon name="trash" color="#1E90FF" size={18} />
-                </TouchableOpacity>
-                
-                <TouchableOpacity
-                    style={styles.editButton}
-                    onPress={handleEditPress}>
-                    <Icon name="edit" color="#1E90FF" size={18} />
-                </TouchableOpacity>
-            
-            </View>
-
-
-        </View>
-    );
+        <TouchableOpacity style={styles.editButton} onPress={handleEditPress}>
+          <Icon name="edit" color="#1E90FF" size={18} />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
-
 
 const styles = StyleSheet.create({
     container:{
@@ -78,7 +64,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         
-       alignSelf: 'center',
+       
         marginTop: 10,
         backgroundColor: 'white',
         borderRadius: 5,
@@ -128,6 +114,7 @@ const styles = StyleSheet.create({
 
     textItem: {
         color: 'black',
+        
         fontSize: 16,
         fontWeight: '300',
         marginTop: 10,
@@ -135,5 +122,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         paddingHorizontal: 15,
+        
+        
     }
 });
