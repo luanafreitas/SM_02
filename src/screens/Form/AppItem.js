@@ -40,21 +40,25 @@ export default function AppItem(props) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttons}>
-        <Text style={styles.textItem}>{props.item}</Text>
+        <View style={styles.buttons}>
+        <Text style={styles.textItem}>
 
-        <TouchableOpacity
-          style={styles.deleteButton}
-          onPress={handleDeletePress}>
-          <Icon name="trash" color="#1E90FF" size={18} />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.editButton} onPress={handleEditPress}>
-          <Icon name="edit" color="#1E90FF" size={18} />
-        </TouchableOpacity>
-      </View>
+            {props.item}
+            <TouchableOpacity
+                style={styles.deleteButton}
+                onPress={handleDeletePress}>
+                <Icon name="trash" color="#1E90FF" size={18} />
+            </TouchableOpacity>
+            
+            <TouchableOpacity
+                style={styles.editButton}
+                onPress={handleEditPress}>
+                <Icon name="edit" color="#1E90FF" size={18} />
+            </TouchableOpacity>
+            </Text>
+        </View>
     </View>
-  );
+);
 }
 
 const styles = StyleSheet.create({
@@ -64,8 +68,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         
-       
+       alignSelf: 'center',
         marginTop: 10,
+        width: '100%',
         backgroundColor: 'white',
         borderRadius: 5,
         paddingHorizontal: 1,
@@ -91,6 +96,7 @@ const styles = StyleSheet.create({
     editButton: {
         flex: 1,
         flexDirection: 'column',
+
         
         fontSize: 12,
         
@@ -114,7 +120,6 @@ const styles = StyleSheet.create({
 
     textItem: {
         color: 'black',
-        
         fontSize: 16,
         fontWeight: '300',
         marginTop: 10,
@@ -122,7 +127,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         paddingHorizontal: 15,
-        
-        
     }
 });
